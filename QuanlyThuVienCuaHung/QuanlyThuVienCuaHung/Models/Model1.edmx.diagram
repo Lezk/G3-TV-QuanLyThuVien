@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="11c0e9b4ce2a4ba2bfc65c2b6ee3e48d" Name="Diagram1" ZoomLevel="81">
+      <Diagram DiagramId="11c0e9b4ce2a4ba2bfc65c2b6ee3e48d" Name="Diagram1" ZoomLevel="69">
         <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
@@ -15,24 +15,24 @@
         <EntityTypeShape EntityType="Model.LOAI_DOCGIA" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.LOAI_SACH" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.MUON" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PHIEU_MUON_SACH" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PHIEU_THU_PHAT" Width="1.5" PointX="5.25" PointY="17" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.SACH" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.TAC_GIA" Width="1.5" PointX="3.75" PointY="20.25" IsExpanded="true" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_AspNetUsers_LOAI_DG" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_MUON_DOCGIA" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_PHIEU_THU_PHAT_DG" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FKPHIEUMUON_DOCGIA" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_BAOCAOMUONSACH_SACH" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_BAOCAOTRASACH_SACH" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_SACH_LOAI_SACH" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_MUON_SACH" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_PHIEUMUON_SACH" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_SACH_TAC_GIA" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Model.TRA_SACH" Width="1.5" PointX="10.5" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.PHIEU_MUON_SACH" Width="1.5" PointX="8.25" PointY="8.5" />
+        <EntityTypeShape EntityType="Model.PHIEU_THU_PHAT" Width="1.5" PointX="5.25" PointY="14.75" />
+        <AssociationConnector Association="Model.FK_PHIEU_THU_PHAT_DG" />
+        <AssociationConnector Association="Model.FKPHIEUMUON_DOCGIA" />
+        <AssociationConnector Association="Model.FK_PHIEUMUON_SACH" />
         <AssociationConnector Association="Model.FK_TRA_SACH_PHIEUMUONSACH" />
       </Diagram>
     </edmx:Diagrams>

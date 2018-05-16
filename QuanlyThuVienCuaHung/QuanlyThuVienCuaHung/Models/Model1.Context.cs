@@ -35,10 +35,10 @@ namespace QuanlyThuVienCuaHung.Models
         public virtual DbSet<LOAI_DOCGIA> LOAI_DOCGIA { get; set; }
         public virtual DbSet<LOAI_SACH> LOAI_SACH { get; set; }
         public virtual DbSet<MUON> MUONs { get; set; }
-        public virtual DbSet<PHIEU_MUON_SACH> PHIEU_MUON_SACH { get; set; }
-        public virtual DbSet<PHIEU_THU_PHAT> PHIEU_THU_PHAT { get; set; }
         public virtual DbSet<SACH> SACHes { get; set; }
         public virtual DbSet<TAC_GIA> TAC_GIA { get; set; }
         public virtual DbSet<TRA_SACH> TRA_SACH { get; set; }
+        public virtual DbSet<PHIEU_MUON_SACH> PHIEU_MUON_SACH { get; set; }
+        public virtual DbSet<PHIEU_THU_PHAT> PHIEU_THU_PHAT { get; set; }
     }
 }

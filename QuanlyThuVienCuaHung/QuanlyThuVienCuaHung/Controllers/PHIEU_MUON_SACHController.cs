@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CrystalDecisions.CrystalReports.Engine;
 using QuanlyThuVienCuaHung.Models;
 
 namespace QuanlyThuVienCuaHung.Controllers
@@ -133,6 +135,32 @@ namespace QuanlyThuVienCuaHung.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult BaoCaoMuonSach()
+        {
+            List<PHIEU_MUON_SACH> PhieuMuonSach = db.PHIEU_MUON_SACH.ToList();
+            foreach(var item in PhieuMuonSach)
+            {
+                item.MaDG = db.AspNetUsers.Single(t => t.Id.Equals(item.MaDG.ToString())).HoTen;
+                
+            }
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports"), "BaoCaoMuonSach.rpt"));
+            rd.SetDataSource(PhieuMuonSach);
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            try
+            {
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "BaoCaoMuonSach.pdf");
+            }
+            catch
+            {
+                throw;
+            }
+
         }
     }
 }

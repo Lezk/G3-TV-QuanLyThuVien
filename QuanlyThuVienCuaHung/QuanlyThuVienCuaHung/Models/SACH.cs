@@ -39,8 +39,8 @@ namespace QuanlyThuVienCuaHung.Models
         public virtual LOAI_SACH LOAI_SACH { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MUON> MUONs { get; set; }
+        public virtual TAC_GIA TAC_GIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEU_MUON_SACH> PHIEU_MUON_SACH { get; set; }
-        public virtual TAC_GIA TAC_GIA { get; set; }
     }
 }

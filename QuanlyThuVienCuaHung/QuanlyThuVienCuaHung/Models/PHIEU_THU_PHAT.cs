@@ -16,7 +16,7 @@ namespace QuanlyThuVienCuaHung.Models
     {
         public int MaPhieuThuPhat { get; set; }
         public string MaDG { get; set; }
-        public Nullable<int> SoTienThu { get; set; }
+        public int SoTienThu { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
     }

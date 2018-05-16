@@ -22,8 +22,8 @@ namespace QuanlyThuVienCuaHung.Models
     
         public int MaPhieuMuon { get; set; }
         public string MaDG { get; set; }
-        public Nullable<int> MaSach { get; set; }
-        public Nullable<System.DateTime> NgayMuon { get; set; }
+        public int MaSach { get; set; }
+        public System.DateTime NgayMuon { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual SACH SACH { get; set; }
