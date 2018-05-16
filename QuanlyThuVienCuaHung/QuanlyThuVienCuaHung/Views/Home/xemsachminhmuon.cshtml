@@ -1,0 +1,86 @@
+﻿@model IEnumerable<QuanlyThuVienCuaHung.Models.SACH>
+@using QuanlyThuVienCuaHung.Models
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "xemsachminhmuon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string username = User.Identity.GetUserName();
+    string iduser = "";
+    Entities1 db = new Entities1();
+    if (Request.IsAuthenticated)
+    {
+        iduser = db.AspNetUsers.Single(d => d.Email.Equals(username)).Id;
+    }
+    var listdamuon = db.PHIEU_MUON_SACH.Where(cay => cay.MaDG.Equals(iduser)).ToList();
+    var listsach = db.SACHes.ToList();
+    var listtacgia = db.TAC_GIA.ToList();
+    var listloaisach = db.LOAI_SACH.ToList();
+}
+
+<h2>Xem sách đang mượn</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Tên Sách
+        </th>
+        <th>
+            Năm Xuất Bản
+        </th>
+        <th>
+            Nhà Xuất Bản
+        </th>
+        <th>
+            Hạn Trả
+        </th>
+        <th>
+            Tinh Trạng
+        </th>
+        <th>
+            Tên Loại Sách
+        </th>
+        <th>
+            Tên Tác Giá
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in listdamuon)
+    {
+        if (@listsach.Single(e => e.MaSach.Equals(item.MaSach)).TinhTrang.Equals("Đã Mượn"))
+        {
+            <tr>
+                <td>
+                    @listsach.Single(e => e.MaSach.Equals(item.MaSach)).TenSach
+                </td>
+                <td>
+                    @listsach.Single(e => e.MaSach.Equals(item.MaSach)).NamXuatBan
+                </td>
+                <td>
+                    @listsach.Single(e => e.MaSach.Equals(item.MaSach)).NhaXuatBan
+                </td>
+                <td>
+                    @listsach.Single(e => e.MaSach.Equals(item.MaSach)).HanTra
+                </td>
+                <td>
+                    @listsach.Single(e => e.MaSach.Equals(item.MaSach)).TinhTrang
+                </td>
+                <td>
+
+                    @listloaisach.Single(d => d.MaLoaiSach.Equals(@listsach.Single(e => e.MaSach.Equals(item.MaSach)).MaLoaiSach)).TenLoaiSach
+                </td>
+                <td>
+
+                    @listtacgia.Single(d => d.MaTG.Equals(@listsach.Single(e => e.MaSach.Equals(item.MaSach)).MaTG)).TenTG
+                </td>
+                <td>
+                    <a href="@Url.Action("trasachdamuon","Home", new { masach = item.MaSach })">Trả</a>
+                </td>
+            </tr>
+        }
+
+    }
+
+</table>
+<p>@Html.ActionLink("Back to List", "Index")</p>

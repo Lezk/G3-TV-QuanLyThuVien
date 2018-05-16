@@ -1,0 +1,100 @@
+﻿@model QuanlyThuVienCuaHung.Models.SACH
+
+@using QuanlyThuVienCuaHung.Models
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "trả sách";
+    var ngaytra = DateTime.Now;
+    int masach = int.Parse(ViewData["masach"].ToString());
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string username = User.Identity.GetUserName();
+    string iduser = "";
+    Entities1 db = new Entities1();
+    if (Request.IsAuthenticated)
+    {
+        iduser = db.AspNetUsers.Single(d => d.Email.Equals(username)).Id;
+    }
+    var listdamuon = db.PHIEU_MUON_SACH.Where(cay => cay.MaDG.Equals(iduser)).ToList();
+    var listsach = db.SACHes.ToList();
+    var listtacgia = db.TAC_GIA.ToList();
+    var listloaisach = db.LOAI_SACH.ToList();
+
+    var listphieumuonsach = db.PHIEU_MUON_SACH.ToList();
+    var maphieumuon = listphieumuonsach.Single(m=>m.MaSach.Equals(masach)).MaPhieuMuon;
+}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Sách</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Sách
+        </dt>
+
+        <dd>
+            @listsach.Single(d => d.MaSach.Equals(masach)).TenSach
+        </dd>
+
+        <dt>
+            Năm Xuất Bản
+        </dt>
+
+        <dd>
+            @listsach.Single(d => d.MaSach.Equals(masach)).NamXuatBan
+        </dd>
+
+        <dt>
+            Nhà Xuất Bản
+        </dt>
+
+        <dd>
+            @listsach.Single(d => d.MaSach.Equals(masach)).NhaXuatBan
+        </dd>
+
+        <dt>
+            Hạn Trả
+        </dt>
+
+        <dd>
+            @listsach.Single(d => d.MaSach.Equals(masach)).HanTra
+        </dd>
+
+        <dt>
+            Tình Trạng
+        </dt>
+
+        <dd>
+            @listsach.Single(d => d.MaSach.Equals(masach)).TinhTrang
+        </dd>
+
+        <dt>
+            Tên Loại Sách
+        </dt>
+
+        <dd>
+            @listloaisach.Single(d => d.MaLoaiSach.Equals(@listsach.Single(e => e.MaSach.Equals(masach)).MaLoaiSach)).TenLoaiSach
+        </dd>
+
+        <dt>
+            Ten Tác Giả
+        </dt>
+
+        <dd>
+            @listtacgia.Single(d => d.MaTG.Equals(@listsach.Single(e => e.MaSach.Equals(masach)).MaTG)).TenTG
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "xemsachminhmuon")
+</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input name="MaPhieuMuon" class="w3-hide" value=@maphieumuon />
+    <input name="NgayTra" class="w3-hide"  value="@ngaytra" />
+    <input name="TienPhat"  class="w3-hide" value=0 />
+    <input type="submit" value="Trả" class="btn btn-default" />
+}

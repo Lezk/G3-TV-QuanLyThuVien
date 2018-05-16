@@ -1,0 +1,75 @@
+﻿@model QuanlyThuVienCuaHung.Models.SACH
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SACH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NamXuatBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamXuatBan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NhaXuatBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaXuatBan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HanTra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HanTra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAI_SACH.TenLoaiSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAI_SACH.TenLoaiSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAC_GIA.TenTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAC_GIA.TenTG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaSach }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

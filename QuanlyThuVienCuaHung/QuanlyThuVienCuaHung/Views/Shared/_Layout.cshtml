@@ -1,0 +1,125 @@
+﻿@using Microsoft.AspNet.Identity
+@using QuanlyThuVienCuaHung.Models
+@{ 
+    Entities1 db = new Entities1();
+    bool dadayduthongtin = false;
+    bool bandangotrangdanhchonguoichuadangnhap = false;
+    string path = HttpContext.Current.Request.Url.AbsolutePath;
+    string username = "";
+    if (Request.IsAuthenticated == false )
+    {
+        if((path == "/Account/Login" || path == "/Account/Register"))
+        {
+            bandangotrangdanhchonguoichuadangnhap = true;
+        }
+        if (bandangotrangdanhchonguoichuadangnhap == false)
+        {
+            Response.Redirect("~/Account/Login");
+        }
+    }
+    else if(Request.IsAuthenticated)
+    {
+        username = User.Identity.GetUserName();
+        var DBuser = db.AspNetUsers.Single(t => t.UserName.Equals(username));
+        bool full = true;
+        if (DBuser.MaLoaiDG == null || DBuser.HoTen == null || DBuser.NgaySinh == null ||  DBuser.DiaChi == null)
+        {
+            full = false;
+
+        }
+        else
+        {
+            dadayduthongtin = true;
+            full = true;
+        }
+        if (full == false)
+        {
+            if(path!="/BoSungThongTinKhiDangKy/Fill/" + DBuser.Id.ToString())
+            {
+                Response.Redirect("~/BoSungThongTinKhiDangKy/Fill/" + DBuser.Id.ToString());
+            }
+
+        }
+
+    }
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8 " />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Thư viện của Hùng</title>
+    <link rel="stylesheet" href="~/Content/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (User.Identity.GetUserName() == "admin@gmail.com" && Request.IsAuthenticated)
+    {
+                <li>@Html.ActionLink("User", "Index", "AspNetUsers")</li>
+                <li>@Html.ActionLink("Loại Độc Giả", "Index", "LOAI_DOCGIA")</li>
+                <li>@Html.ActionLink("Loại Sách", "Index", "LOAI_SACH")</li>
+                @*<li>@Html.ActionLink("Mượn", "Index", "MUONs")</li>*@
+                <li>@Html.ActionLink("Phiếu Mượn", "Index", "PHIEU_MUON_SACH")</li>
+                <li>@Html.ActionLink("Phiếu Thu", "Index", "PHIEU_THU_PHAT")</li>
+                <li>@Html.ActionLink("Sách", "Index", "SACHes")</li>
+                <li>@Html.ActionLink("Tác Giả", "Index", "TAC_GIA")</li>
+                <li>@Html.ActionLink("Trả", "Index", "TRA_SACH")</li>
+}
+
+                </ul>
+                @if (dadayduthongtin)
+                {
+                    @Html.Partial("_LoginPartial")
+                }
+                        
+                
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="w3-row w3-section">
+                <div class="w3-third w3-container w3-black w3-large" style="height:250px">
+                    <h2>Contact Info</h2>
+                    <p><i class="fa fa-map-marker" style="width:30px"></i> TP.Hồ Chí Minh</p>
+                    <p><i class="fa fa-phone" style="width:30px"></i> Phone: 0986424937</p>
+                    <p><i class="fa fa-envelope" style="width:30px"> </i> Email: laiquanghung0512@mail.com</p>
+                </div>
+                <div class="w3-third w3-center w3-large w3-dark-grey w3-text-white" style="height:250px">
+                    <h2>Contact Us</h2>
+                    <p>If you have an idea.</p>
+                    <p>What are you waiting for?</p>
+                </div>
+                <div class="w3-third w3-center w3-large w3-grey w3-text-white" style="height:250px">
+                    <h2>Like Us</h2>
+                    <i class="w3-xlarge fa fa-facebook-official"></i><br>                    
+                    <i class="w3-xlarge fa fa-twitter"></i><br>
+                    <i class="w3-xlarge fa fa-flickr"></i><br>
+                    <i class="w3-xlarge fa fa-linkedin"></i>
+                </div>
+            </div>
+           <div class="w3-container w3-text-grey">
+                <p>Powered by G3-TV</p>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

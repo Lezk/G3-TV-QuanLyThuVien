@@ -1,0 +1,126 @@
+﻿@using QuanlyThuVienCuaHung.Models
+@{
+    ViewBag.Title = "xemsach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Entities1 db = new Entities1();
+    var listsach = db.SACHes.ToList();
+    var listtacgia = db.TAC_GIA.ToList();
+    var listloaisach = db.LOAI_SACH.ToList();
+}
+<h2>Sách Chưa Mượn</h2>
+<table class="table">
+    <tr>
+        <th>
+            Tên Sách
+        </th>
+        <th>
+            Năm Sản Xuất
+        </th>
+        <th>
+            Nhà Xuất Bản
+        </th>
+        <th>
+            Hạn Trả
+        </th>
+        <th>
+            Tình trạng
+        </th>
+        <th>
+            Tên Loại Sách
+        </th>
+        <th>
+            Ten TG
+        </th>
+    </tr>
+
+    @foreach (var item in listsach)
+    {
+        if (item.TinhTrang == "Chưa Mượn")
+        {
+            <tr>
+                <td>
+                    @item.TenSach
+                </td>
+                <td>
+                    @item.NamXuatBan
+                </td>
+                <td>
+                    @item.NhaXuatBan
+                </td>
+                <td>
+                    @item.HanTra
+                </td>
+                <td>
+                    @item.TinhTrang
+                </td>
+                <td>
+                    @listloaisach.Single(d => d.MaLoaiSach.Equals(item.MaLoaiSach)).TenLoaiSach
+                </td>
+                <td>
+                    @listtacgia.Single(d => d.MaTG.Equals(item.MaTG)).TenTG
+                </td>
+            </tr>
+        }
+
+    }
+
+</table>
+<hr />
+<h2>Sách Đã Mượn</h2>
+<table class="table">
+    <tr>
+        <th>
+            Tên Sách
+        </th>
+        <th>
+            Năm Sản Xuất
+        </th>
+        <th>
+            Nhà Xuất Bản
+        </th>
+        <th>
+            Hạn Trả
+        </th>
+        <th>
+            Tình trạng
+        </th>
+        <th>
+            Tên Loại Sách
+        </th>
+        <th>
+            Ten TG
+        </th>
+    </tr>
+
+    @foreach (var item in listsach)
+    {
+        if (item.TinhTrang == "Đã Mượn")
+        {
+            <tr>
+                <td>
+                    @item.TenSach
+                </td>
+                <td>
+                    @item.NamXuatBan
+                </td>
+                <td>
+                    @item.NhaXuatBan
+                </td>
+                <td>
+                    @item.HanTra
+                </td>
+                <td>
+                    @item.TinhTrang
+                </td>
+                <td>
+                    @listloaisach.Single(d => d.MaLoaiSach.Equals(item.MaLoaiSach)).TenLoaiSach
+                </td>
+                <td>
+                    @listtacgia.Single(d => d.MaTG.Equals(item.MaTG)).TenTG
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+@Html.ActionLink("Back to List", "Index")

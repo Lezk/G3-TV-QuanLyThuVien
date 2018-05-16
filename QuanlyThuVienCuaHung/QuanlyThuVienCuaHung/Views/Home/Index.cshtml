@@ -1,0 +1,53 @@
+﻿@using QuanlyThuVienCuaHung.Models
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Home Page";
+    Entities1 db = new Entities1();
+    string iduser = "";
+    string username = User.Identity.GetUserName();
+    if (Request.IsAuthenticated)
+    {
+        iduser = db.AspNetUsers.Single(d => d.Email.Equals(username)).Id;
+    }
+
+}
+<header class="w3-display-container w3-wide"  id="home">
+    <img class="w3-image" src="~/Content/image/banner.png" alt="Thu Vien Blog" width="1600" height="1060">
+    <div class="w3-display-left w3-padding-large ">
+       
+        <h1 class="w3-jumbo w3-text-white w3-hide-small "><i class="fa fa-asl-interpreting" style="font-size:50px"></i> THƯ VIỆN <i class="fa fa-asl-interpreting" style="font-size:50px"></i></h1>
+        @if (Request.IsAuthenticated)
+    {
+        <p><a href="@Url.Action("Details","Home", new { id=iduser })" class="w3-button w3-blue">Xem Thông tin &raquo;</a></p>
+        <p><a href="@Url.Action("xemsach","Home")" class="w3-button w3-deep-purple">Xem Sách &raquo;</a></p>
+        <p><a href="@Url.Action("muonsach","Home")" class="w3-button w3-purple">Mượn Sách &raquo;</a></p>
+        <p><a href="@Url.Action("xemsachminhmuon","Home")" class="w3-button w3-pink">Xem Sách Mình Đã Mượn &raquo;</a></p>
+}
+    </div>
+</header>
+
+<div class="row">
+    
+    <div class="col-md-6">
+        <h2><b>Thành Viên</b></h2>
+        <li style="font-size:20px">
+            Lại Quang Hưng
+        </li>
+        <li style="font-size:20px">Lê Tổng Nam</li>
+        <li style="font-size:20px">Nguyễn Tuấn Bảo</li>
+
+    </div>
+    
+    <div class="col-md-6">
+        <h2><b>Công cụ sử dụng</b></h2>
+        <li style="font-size:20px">
+            Visual Studio 2017
+        </li>
+        <li style="font-size:20px">
+            SQL Server 2008
+        </li>
+        <li style="font-size:20px">
+            Enterprise Architect
+        </li>
+    </div>
+</div>

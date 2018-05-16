@@ -1,0 +1,54 @@
+﻿@model IEnumerable<QuanlyThuVienCuaHung.Models.TRA_SACH>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Trả Sách</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+    
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayTra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TienPhat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHIEU_MUON_SACH.AspNetUser.HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHIEU_MUON_SACH.SACH.TenSach)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayTra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TienPhat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHIEU_MUON_SACH.AspNetUser.HoTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHIEU_MUON_SACH.SACH.TenSach)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaPhieuTra }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaPhieuTra }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaPhieuTra })
+        </td>
+    </tr>
+}
+
+</table>

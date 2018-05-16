@@ -1,0 +1,35 @@
+﻿@model QuanlyThuVienCuaHung.Models.MUON
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MUON</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SACH.TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SACH.TenSach)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaPhieuMuon }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

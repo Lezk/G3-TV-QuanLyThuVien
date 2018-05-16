@@ -1,0 +1,63 @@
+﻿@model QuanlyThuVienCuaHung.Models.PHIEU_MUON_SACH
+@using QuanlyThuVienCuaHung.Models
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "muonsach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Entities1 db = new Entities1();
+    string iduser = "";
+    string username = User.Identity.GetUserName();
+    if (Request.IsAuthenticated)
+    {
+        iduser = db.AspNetUsers.Single(d => d.Email.Equals(username)).Id;
+    }
+}
+
+<h2>Mượn sách</h2>
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Phiếu mượn sách</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                
+                <div class="col-md-10  w3-hide">
+                    <input class="form-control" value="@iduser" name="MaDG"/>
+                    @Html.ValidationMessageFor(model => model.MaDG, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <label class="">Chọn Sách Mượn</label><br />
+                <div class="">
+                    @Html.DropDownList("MaSach", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaSach, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group  w3-hide">
+                <label class="">Ngày Mượn</label>
+                <div class="">
+                    <input class="form-control" value="@DateTime.Now" name="NgayMuon"/>
+                    @Html.ValidationMessageFor(model => model.NgayMuon, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Mượn Sách" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+}

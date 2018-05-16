@@ -1,0 +1,43 @@
+﻿@model QuanlyThuVienCuaHung.Models.TRA_SACH
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TRA_SACH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayTra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayTra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienPhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienPhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PHIEU_MUON_SACH.MaDG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHIEU_MUON_SACH.MaDG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaPhieuTra }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

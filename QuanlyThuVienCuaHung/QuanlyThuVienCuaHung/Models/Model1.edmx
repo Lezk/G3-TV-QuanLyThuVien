@@ -1,0 +1,1038 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="MaLoaiDG" Type="int" />
+          <Property Name="HoTen" Type="nvarchar(max)" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="DiaChi" Type="nvarchar(max)" />
+          <Property Name="NgayLapThe" Type="date" />
+          <Property Name="TienNo" Type="int" />
+          <Property Name="HanThe" Type="date" />
+        </EntityType>
+        <EntityType Name="BAOCAOMUONSACH">
+          <Key>
+            <PropertyRef Name="MaBaoCaoMuon" />
+          </Key>
+          <Property Name="MaBaoCaoMuon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaSach" Type="int" />
+          <Property Name="SoLuotMuon" Type="int" />
+          <Property Name="TiLe" Type="int" />
+        </EntityType>
+        <EntityType Name="BAOCAOSACHTRATRE">
+          <Key>
+            <PropertyRef Name="MaBaoCaoSachTraTre" />
+          </Key>
+          <Property Name="MaBaoCaoSachTraTre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaSach" Type="int" />
+          <Property Name="GhiChu" Type="nvarchar(max)" />
+          <Property Name="SoNgayTraTre" Type="int" />
+        </EntityType>
+        <EntityType Name="LOAI_DOCGIA">
+          <Key>
+            <PropertyRef Name="MaLoaiDG" />
+          </Key>
+          <Property Name="MaLoaiDG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiDG" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LOAI_SACH">
+          <Key>
+            <PropertyRef Name="MaLoaiSach" />
+          </Key>
+          <Property Name="MaLoaiSach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiSach" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MUON">
+          <Key>
+            <PropertyRef Name="MaPhieuMuon" />
+          </Key>
+          <Property Name="MaPhieuMuon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaSach" Type="int" />
+          <Property Name="MaDG" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="PHIEU_MUON_SACH">
+          <Key>
+            <PropertyRef Name="MaPhieuMuon" />
+          </Key>
+          <Property Name="MaPhieuMuon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaDG" Type="nvarchar" MaxLength="128" />
+          <Property Name="MaSach" Type="int" />
+          <Property Name="NgayMuon" Type="date" />
+        </EntityType>
+        <EntityType Name="PHIEU_THU_PHAT">
+          <Key>
+            <PropertyRef Name="MaPhieuThuPhat" />
+          </Key>
+          <Property Name="MaPhieuThuPhat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaDG" Type="nvarchar" MaxLength="128" />
+          <Property Name="SoTienThu" Type="int" />
+        </EntityType>
+        <EntityType Name="SACH">
+          <Key>
+            <PropertyRef Name="MaSach" />
+          </Key>
+          <Property Name="MaSach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaTG" Type="int" />
+          <Property Name="MaLoaiSach" Type="int" />
+          <Property Name="TenSach" Type="nvarchar(max)" />
+          <Property Name="NamXuatBan" Type="int" />
+          <Property Name="NhaXuatBan" Type="nvarchar(max)" />
+          <Property Name="HanTra" Type="int" />
+          <Property Name="TinhTrang" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TAC_GIA">
+          <Key>
+            <PropertyRef Name="MaTG" />
+          </Key>
+          <Property Name="MaTG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTG" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TRA_SACH">
+          <Key>
+            <PropertyRef Name="MaPhieuTra" />
+          </Key>
+          <Property Name="MaPhieuTra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaPhieuMuon" Type="int" />
+          <Property Name="NgayTra" Type="date" />
+          <Property Name="TienPhat" Type="int" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_LOAI_DG">
+          <End Role="LOAI_DOCGIA" Type="Self.LOAI_DOCGIA" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAI_DOCGIA">
+              <PropertyRef Name="MaLoaiDG" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="MaLoaiDG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BAOCAOMUONSACH_SACH">
+          <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+          <End Role="BAOCAOMUONSACH" Type="Self.BAOCAOMUONSACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MaSach" />
+            </Principal>
+            <Dependent Role="BAOCAOMUONSACH">
+              <PropertyRef Name="MaSach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BAOCAOTRASACH_SACH">
+          <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+          <End Role="BAOCAOSACHTRATRE" Type="Self.BAOCAOSACHTRATRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MaSach" />
+            </Principal>
+            <Dependent Role="BAOCAOSACHTRATRE">
+              <PropertyRef Name="MaSach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUON_DOCGIA">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="MUON" Type="Self.MUON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MUON">
+              <PropertyRef Name="MaDG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUON_SACH">
+          <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+          <End Role="MUON" Type="Self.MUON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MaSach" />
+            </Principal>
+            <Dependent Role="MUON">
+              <PropertyRef Name="MaSach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHIEU_THU_PHAT_DG">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="PHIEU_THU_PHAT" Type="Self.PHIEU_THU_PHAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PHIEU_THU_PHAT">
+              <PropertyRef Name="MaDG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHIEUMUON_SACH">
+          <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+          <End Role="PHIEU_MUON_SACH" Type="Self.PHIEU_MUON_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MaSach" />
+            </Principal>
+            <Dependent Role="PHIEU_MUON_SACH">
+              <PropertyRef Name="MaSach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SACH_LOAI_SACH">
+          <End Role="LOAI_SACH" Type="Self.LOAI_SACH" Multiplicity="0..1" />
+          <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAI_SACH">
+              <PropertyRef Name="MaLoaiSach" />
+            </Principal>
+            <Dependent Role="SACH">
+              <PropertyRef Name="MaLoaiSach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SACH_TAC_GIA">
+          <End Role="TAC_GIA" Type="Self.TAC_GIA" Multiplicity="0..1" />
+          <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAC_GIA">
+              <PropertyRef Name="MaTG" />
+            </Principal>
+            <Dependent Role="SACH">
+              <PropertyRef Name="MaTG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRA_SACH_PHIEUMUONSACH">
+          <End Role="PHIEU_MUON_SACH" Type="Self.PHIEU_MUON_SACH" Multiplicity="0..1" />
+          <End Role="TRA_SACH" Type="Self.TRA_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEU_MUON_SACH">
+              <PropertyRef Name="MaPhieuMuon" />
+            </Principal>
+            <Dependent Role="TRA_SACH">
+              <PropertyRef Name="MaPhieuMuon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKPHIEUMUON_DOCGIA">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="PHIEU_MUON_SACH" Type="Self.PHIEU_MUON_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PHIEU_MUON_SACH">
+              <PropertyRef Name="MaDG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAOCAOMUONSACH" EntityType="Self.BAOCAOMUONSACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAOCAOSACHTRATRE" EntityType="Self.BAOCAOSACHTRATRE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAI_DOCGIA" EntityType="Self.LOAI_DOCGIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAI_SACH" EntityType="Self.LOAI_SACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MUON" EntityType="Self.MUON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEU_MUON_SACH" EntityType="Self.PHIEU_MUON_SACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEU_THU_PHAT" EntityType="Self.PHIEU_THU_PHAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAC_GIA" EntityType="Self.TAC_GIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRA_SACH" EntityType="Self.TRA_SACH" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetUsers_LOAI_DG" Association="Self.FK_AspNetUsers_LOAI_DG">
+            <End Role="LOAI_DOCGIA" EntitySet="LOAI_DOCGIA" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BAOCAOMUONSACH_SACH" Association="Self.FK_BAOCAOMUONSACH_SACH">
+            <End Role="SACH" EntitySet="SACH" />
+            <End Role="BAOCAOMUONSACH" EntitySet="BAOCAOMUONSACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BAOCAOTRASACH_SACH" Association="Self.FK_BAOCAOTRASACH_SACH">
+            <End Role="SACH" EntitySet="SACH" />
+            <End Role="BAOCAOSACHTRATRE" EntitySet="BAOCAOSACHTRATRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUON_DOCGIA" Association="Self.FK_MUON_DOCGIA">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MUON" EntitySet="MUON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUON_SACH" Association="Self.FK_MUON_SACH">
+            <End Role="SACH" EntitySet="SACH" />
+            <End Role="MUON" EntitySet="MUON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHIEU_THU_PHAT_DG" Association="Self.FK_PHIEU_THU_PHAT_DG">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PHIEU_THU_PHAT" EntitySet="PHIEU_THU_PHAT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHIEUMUON_SACH" Association="Self.FK_PHIEUMUON_SACH">
+            <End Role="SACH" EntitySet="SACH" />
+            <End Role="PHIEU_MUON_SACH" EntitySet="PHIEU_MUON_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SACH_LOAI_SACH" Association="Self.FK_SACH_LOAI_SACH">
+            <End Role="LOAI_SACH" EntitySet="LOAI_SACH" />
+            <End Role="SACH" EntitySet="SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SACH_TAC_GIA" Association="Self.FK_SACH_TAC_GIA">
+            <End Role="TAC_GIA" EntitySet="TAC_GIA" />
+            <End Role="SACH" EntitySet="SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRA_SACH_PHIEUMUONSACH" Association="Self.FK_TRA_SACH_PHIEUMUONSACH">
+            <End Role="PHIEU_MUON_SACH" EntitySet="PHIEU_MUON_SACH" />
+            <End Role="TRA_SACH" EntitySet="TRA_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FKPHIEUMUON_DOCGIA" Association="Self.FKPHIEUMUON_DOCGIA">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PHIEU_MUON_SACH" EntitySet="PHIEU_MUON_SACH" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaLoaiDG" Type="Int32" />
+          <Property Name="HoTen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NgayLapThe" Type="DateTime" Precision="0" />
+          <Property Name="TienNo" Type="Int32" />
+          <Property Name="HanThe" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="LOAI_DOCGIA" Relationship="Self.FK_AspNetUsers_LOAI_DG" FromRole="AspNetUsers" ToRole="LOAI_DOCGIA" />
+          <NavigationProperty Name="MUONs" Relationship="Self.FK_MUON_DOCGIA" FromRole="AspNetUsers" ToRole="MUON" />
+          <NavigationProperty Name="PHIEU_THU_PHAT" Relationship="Self.FK_PHIEU_THU_PHAT_DG" FromRole="AspNetUsers" ToRole="PHIEU_THU_PHAT" />
+          <NavigationProperty Name="PHIEU_MUON_SACH" Relationship="Self.FKPHIEUMUON_DOCGIA" FromRole="AspNetUsers" ToRole="PHIEU_MUON_SACH" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="BAOCAOMUONSACH">
+          <Key>
+            <PropertyRef Name="MaBaoCaoMuon" />
+          </Key>
+          <Property Name="MaBaoCaoMuon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaSach" Type="Int32" />
+          <Property Name="SoLuotMuon" Type="Int32" />
+          <Property Name="TiLe" Type="Int32" />
+          <NavigationProperty Name="SACH" Relationship="Self.FK_BAOCAOMUONSACH_SACH" FromRole="BAOCAOMUONSACH" ToRole="SACH" />
+        </EntityType>
+        <EntityType Name="BAOCAOSACHTRATRE">
+          <Key>
+            <PropertyRef Name="MaBaoCaoSachTraTre" />
+          </Key>
+          <Property Name="MaBaoCaoSachTraTre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaSach" Type="Int32" />
+          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SoNgayTraTre" Type="Int32" />
+          <NavigationProperty Name="SACH" Relationship="Self.FK_BAOCAOTRASACH_SACH" FromRole="BAOCAOSACHTRATRE" ToRole="SACH" />
+        </EntityType>
+        <EntityType Name="LOAI_DOCGIA">
+          <Key>
+            <PropertyRef Name="MaLoaiDG" />
+          </Key>
+          <Property Name="MaLoaiDG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiDG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUsers_LOAI_DG" FromRole="LOAI_DOCGIA" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="LOAI_SACH">
+          <Key>
+            <PropertyRef Name="MaLoaiSach" />
+          </Key>
+          <Property Name="MaLoaiSach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiSach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SACHes" Relationship="Self.FK_SACH_LOAI_SACH" FromRole="LOAI_SACH" ToRole="SACH" />
+        </EntityType>
+        <EntityType Name="MUON">
+          <Key>
+            <PropertyRef Name="MaPhieuMuon" />
+          </Key>
+          <Property Name="MaPhieuMuon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaSach" Type="Int32" />
+          <Property Name="MaDG" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_MUON_DOCGIA" FromRole="MUON" ToRole="AspNetUsers" />
+          <NavigationProperty Name="SACH" Relationship="Self.FK_MUON_SACH" FromRole="MUON" ToRole="SACH" />
+        </EntityType>
+        <EntityType Name="PHIEU_MUON_SACH">
+          <Key>
+            <PropertyRef Name="MaPhieuMuon" />
+          </Key>
+          <Property Name="MaPhieuMuon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaDG" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="MaSach" Type="Int32" />
+          <Property Name="NgayMuon" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FKPHIEUMUON_DOCGIA" FromRole="PHIEU_MUON_SACH" ToRole="AspNetUsers" />
+          <NavigationProperty Name="SACH" Relationship="Self.FK_PHIEUMUON_SACH" FromRole="PHIEU_MUON_SACH" ToRole="SACH" />
+          <NavigationProperty Name="TRA_SACH" Relationship="Model.FK_TRA_SACH_PHIEUMUONSACH" FromRole="PHIEU_MUON_SACH" ToRole="TRA_SACH" />
+        </EntityType>
+        <EntityType Name="PHIEU_THU_PHAT">
+          <Key>
+            <PropertyRef Name="MaPhieuThuPhat" />
+          </Key>
+          <Property Name="MaPhieuThuPhat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaDG" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SoTienThu" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PHIEU_THU_PHAT_DG" FromRole="PHIEU_THU_PHAT" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="SACH">
+          <Key>
+            <PropertyRef Name="MaSach" />
+          </Key>
+          <Property Name="MaSach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaTG" Type="Int32" />
+          <Property Name="MaLoaiSach" Type="Int32" />
+          <Property Name="TenSach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NamXuatBan" Type="Int32" />
+          <Property Name="NhaXuatBan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HanTra" Type="Int32" />
+          <Property Name="TinhTrang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BAOCAOMUONSACHes" Relationship="Self.FK_BAOCAOMUONSACH_SACH" FromRole="SACH" ToRole="BAOCAOMUONSACH" />
+          <NavigationProperty Name="BAOCAOSACHTRATREs" Relationship="Self.FK_BAOCAOTRASACH_SACH" FromRole="SACH" ToRole="BAOCAOSACHTRATRE" />
+          <NavigationProperty Name="LOAI_SACH" Relationship="Self.FK_SACH_LOAI_SACH" FromRole="SACH" ToRole="LOAI_SACH" />
+          <NavigationProperty Name="MUONs" Relationship="Self.FK_MUON_SACH" FromRole="SACH" ToRole="MUON" />
+          <NavigationProperty Name="PHIEU_MUON_SACH" Relationship="Self.FK_PHIEUMUON_SACH" FromRole="SACH" ToRole="PHIEU_MUON_SACH" />
+          <NavigationProperty Name="TAC_GIA" Relationship="Self.FK_SACH_TAC_GIA" FromRole="SACH" ToRole="TAC_GIA" />
+        </EntityType>
+        <EntityType Name="TAC_GIA">
+          <Key>
+            <PropertyRef Name="MaTG" />
+          </Key>
+          <Property Name="MaTG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SACHes" Relationship="Self.FK_SACH_TAC_GIA" FromRole="TAC_GIA" ToRole="SACH" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_LOAI_DG">
+          <End Role="LOAI_DOCGIA" Type="Self.LOAI_DOCGIA" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAI_DOCGIA">
+              <PropertyRef Name="MaLoaiDG" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="MaLoaiDG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUON_DOCGIA">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="MUON" Type="Self.MUON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MUON">
+              <PropertyRef Name="MaDG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHIEU_THU_PHAT_DG">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="PHIEU_THU_PHAT" Type="Self.PHIEU_THU_PHAT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PHIEU_THU_PHAT">
+              <PropertyRef Name="MaDG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKPHIEUMUON_DOCGIA">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <End Role="PHIEU_MUON_SACH" Type="Self.PHIEU_MUON_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PHIEU_MUON_SACH">
+              <PropertyRef Name="MaDG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BAOCAOMUONSACH_SACH">
+          <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+          <End Role="BAOCAOMUONSACH" Type="Self.BAOCAOMUONSACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MaSach" />
+            </Principal>
+            <Dependent Role="BAOCAOMUONSACH">
+              <PropertyRef Name="MaSach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BAOCAOTRASACH_SACH">
+          <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+          <End Role="BAOCAOSACHTRATRE" Type="Self.BAOCAOSACHTRATRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MaSach" />
+            </Principal>
+            <Dependent Role="BAOCAOSACHTRATRE">
+              <PropertyRef Name="MaSach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SACH_LOAI_SACH">
+          <End Role="LOAI_SACH" Type="Self.LOAI_SACH" Multiplicity="0..1" />
+          <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAI_SACH">
+              <PropertyRef Name="MaLoaiSach" />
+            </Principal>
+            <Dependent Role="SACH">
+              <PropertyRef Name="MaLoaiSach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MUON_SACH">
+          <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+          <End Role="MUON" Type="Self.MUON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MaSach" />
+            </Principal>
+            <Dependent Role="MUON">
+              <PropertyRef Name="MaSach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHIEUMUON_SACH">
+          <End Role="SACH" Type="Self.SACH" Multiplicity="0..1" />
+          <End Role="PHIEU_MUON_SACH" Type="Self.PHIEU_MUON_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MaSach" />
+            </Principal>
+            <Dependent Role="PHIEU_MUON_SACH">
+              <PropertyRef Name="MaSach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SACH_TAC_GIA">
+          <End Role="TAC_GIA" Type="Self.TAC_GIA" Multiplicity="0..1" />
+          <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAC_GIA">
+              <PropertyRef Name="MaTG" />
+            </Principal>
+            <Dependent Role="SACH">
+              <PropertyRef Name="MaTG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="BAOCAOMUONSACHes" EntityType="Self.BAOCAOMUONSACH" />
+          <EntitySet Name="BAOCAOSACHTRATREs" EntityType="Self.BAOCAOSACHTRATRE" />
+          <EntitySet Name="LOAI_DOCGIA" EntityType="Self.LOAI_DOCGIA" />
+          <EntitySet Name="LOAI_SACH" EntityType="Self.LOAI_SACH" />
+          <EntitySet Name="MUONs" EntityType="Self.MUON" />
+          <EntitySet Name="PHIEU_MUON_SACH" EntityType="Self.PHIEU_MUON_SACH" />
+          <EntitySet Name="PHIEU_THU_PHAT" EntityType="Self.PHIEU_THU_PHAT" />
+          <EntitySet Name="SACHes" EntityType="Self.SACH" />
+          <EntitySet Name="TAC_GIA" EntityType="Self.TAC_GIA" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_LOAI_DG" Association="Self.FK_AspNetUsers_LOAI_DG">
+            <End Role="LOAI_DOCGIA" EntitySet="LOAI_DOCGIA" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUON_DOCGIA" Association="Self.FK_MUON_DOCGIA">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="MUON" EntitySet="MUONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHIEU_THU_PHAT_DG" Association="Self.FK_PHIEU_THU_PHAT_DG">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PHIEU_THU_PHAT" EntitySet="PHIEU_THU_PHAT" />
+          </AssociationSet>
+          <AssociationSet Name="FKPHIEUMUON_DOCGIA" Association="Self.FKPHIEUMUON_DOCGIA">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PHIEU_MUON_SACH" EntitySet="PHIEU_MUON_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BAOCAOMUONSACH_SACH" Association="Self.FK_BAOCAOMUONSACH_SACH">
+            <End Role="SACH" EntitySet="SACHes" />
+            <End Role="BAOCAOMUONSACH" EntitySet="BAOCAOMUONSACHes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BAOCAOTRASACH_SACH" Association="Self.FK_BAOCAOTRASACH_SACH">
+            <End Role="SACH" EntitySet="SACHes" />
+            <End Role="BAOCAOSACHTRATRE" EntitySet="BAOCAOSACHTRATREs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SACH_LOAI_SACH" Association="Self.FK_SACH_LOAI_SACH">
+            <End Role="LOAI_SACH" EntitySet="LOAI_SACH" />
+            <End Role="SACH" EntitySet="SACHes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MUON_SACH" Association="Self.FK_MUON_SACH">
+            <End Role="SACH" EntitySet="SACHes" />
+            <End Role="MUON" EntitySet="MUONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHIEUMUON_SACH" Association="Self.FK_PHIEUMUON_SACH">
+            <End Role="SACH" EntitySet="SACHes" />
+            <End Role="PHIEU_MUON_SACH" EntitySet="PHIEU_MUON_SACH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SACH_TAC_GIA" Association="Self.FK_SACH_TAC_GIA">
+            <End Role="TAC_GIA" EntitySet="TAC_GIA" />
+            <End Role="SACH" EntitySet="SACHes" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="TRA_SACH" EntityType="Model.TRA_SACH" />
+          <AssociationSet Name="FK_TRA_SACH_PHIEUMUONSACH" Association="Model.FK_TRA_SACH_PHIEUMUONSACH">
+            <End Role="PHIEU_MUON_SACH" EntitySet="PHIEU_MUON_SACH" />
+            <End Role="TRA_SACH" EntitySet="TRA_SACH" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TRA_SACH">
+          <Key>
+            <PropertyRef Name="MaPhieuTra" />
+          </Key>
+          <Property Name="MaPhieuTra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaPhieuMuon" Type="Int32" />
+          <Property Name="NgayTra" Type="DateTime" Precision="0" />
+          <Property Name="TienPhat" Type="Int32" />
+          <NavigationProperty Name="PHIEU_MUON_SACH" Relationship="Model.FK_TRA_SACH_PHIEUMUONSACH" FromRole="TRA_SACH" ToRole="PHIEU_MUON_SACH" />
+        </EntityType>
+        <Association Name="FK_TRA_SACH_PHIEUMUONSACH">
+          <End Type="Model.PHIEU_MUON_SACH" Role="PHIEU_MUON_SACH" Multiplicity="0..1" />
+          <End Type="Model.TRA_SACH" Role="TRA_SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEU_MUON_SACH">
+              <PropertyRef Name="MaPhieuMuon" />
+            </Principal>
+            <Dependent Role="TRA_SACH">
+              <PropertyRef Name="MaPhieuMuon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="MaLoaiDG" ColumnName="MaLoaiDG" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="NgayLapThe" ColumnName="NgayLapThe" />
+                <ScalarProperty Name="TienNo" ColumnName="TienNo" />
+                <ScalarProperty Name="HanThe" ColumnName="HanThe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAOCAOMUONSACHes">
+            <EntityTypeMapping TypeName="Model.BAOCAOMUONSACH">
+              <MappingFragment StoreEntitySet="BAOCAOMUONSACH">
+                <ScalarProperty Name="MaBaoCaoMuon" ColumnName="MaBaoCaoMuon" />
+                <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+                <ScalarProperty Name="SoLuotMuon" ColumnName="SoLuotMuon" />
+                <ScalarProperty Name="TiLe" ColumnName="TiLe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAOCAOSACHTRATREs">
+            <EntityTypeMapping TypeName="Model.BAOCAOSACHTRATRE">
+              <MappingFragment StoreEntitySet="BAOCAOSACHTRATRE">
+                <ScalarProperty Name="MaBaoCaoSachTraTre" ColumnName="MaBaoCaoSachTraTre" />
+                <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="SoNgayTraTre" ColumnName="SoNgayTraTre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAI_DOCGIA">
+            <EntityTypeMapping TypeName="Model.LOAI_DOCGIA">
+              <MappingFragment StoreEntitySet="LOAI_DOCGIA">
+                <ScalarProperty Name="MaLoaiDG" ColumnName="MaLoaiDG" />
+                <ScalarProperty Name="TenLoaiDG" ColumnName="TenLoaiDG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAI_SACH">
+            <EntityTypeMapping TypeName="Model.LOAI_SACH">
+              <MappingFragment StoreEntitySet="LOAI_SACH">
+                <ScalarProperty Name="MaLoaiSach" ColumnName="MaLoaiSach" />
+                <ScalarProperty Name="TenLoaiSach" ColumnName="TenLoaiSach" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUONs">
+            <EntityTypeMapping TypeName="Model.MUON">
+              <MappingFragment StoreEntitySet="MUON">
+                <ScalarProperty Name="MaPhieuMuon" ColumnName="MaPhieuMuon" />
+                <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+                <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEU_MUON_SACH">
+            <EntityTypeMapping TypeName="Model.PHIEU_MUON_SACH">
+              <MappingFragment StoreEntitySet="PHIEU_MUON_SACH">
+                <ScalarProperty Name="MaPhieuMuon" ColumnName="MaPhieuMuon" />
+                <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+                <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+                <ScalarProperty Name="NgayMuon" ColumnName="NgayMuon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEU_THU_PHAT">
+            <EntityTypeMapping TypeName="Model.PHIEU_THU_PHAT">
+              <MappingFragment StoreEntitySet="PHIEU_THU_PHAT">
+                <ScalarProperty Name="MaPhieuThuPhat" ColumnName="MaPhieuThuPhat" />
+                <ScalarProperty Name="MaDG" ColumnName="MaDG" />
+                <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SACHes">
+            <EntityTypeMapping TypeName="Model.SACH">
+              <MappingFragment StoreEntitySet="SACH">
+                <ScalarProperty Name="MaSach" ColumnName="MaSach" />
+                <ScalarProperty Name="MaTG" ColumnName="MaTG" />
+                <ScalarProperty Name="MaLoaiSach" ColumnName="MaLoaiSach" />
+                <ScalarProperty Name="TenSach" ColumnName="TenSach" />
+                <ScalarProperty Name="NamXuatBan" ColumnName="NamXuatBan" />
+                <ScalarProperty Name="NhaXuatBan" ColumnName="NhaXuatBan" />
+                <ScalarProperty Name="HanTra" ColumnName="HanTra" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAC_GIA">
+            <EntityTypeMapping TypeName="Model.TAC_GIA">
+              <MappingFragment StoreEntitySet="TAC_GIA">
+                <ScalarProperty Name="MaTG" ColumnName="MaTG" />
+                <ScalarProperty Name="TenTG" ColumnName="TenTG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="TRA_SACH">
+            <EntityTypeMapping TypeName="Model.TRA_SACH">
+              <MappingFragment StoreEntitySet="TRA_SACH">
+                <ScalarProperty Name="TienPhat" ColumnName="TienPhat" />
+                <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
+                <ScalarProperty Name="MaPhieuMuon" ColumnName="MaPhieuMuon" />
+                <ScalarProperty Name="MaPhieuTra" ColumnName="MaPhieuTra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

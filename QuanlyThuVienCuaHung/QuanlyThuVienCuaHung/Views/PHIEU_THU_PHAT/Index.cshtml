@@ -1,0 +1,40 @@
+﻿@model IEnumerable<QuanlyThuVienCuaHung.Models.PHIEU_THU_PHAT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Phiếu Thu</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SoTienThu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoTienThu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaPhieuThuPhat }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaPhieuThuPhat }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaPhieuThuPhat })
+        </td>
+    </tr>
+}
+
+</table>

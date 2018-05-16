@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QuanlyThuVienCuaHung.Models.PHIEU_MUON_SACH>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Phiếu Mượn</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayMuon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SACH.TenSach)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayMuon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SACH.TenSach)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaPhieuMuon }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaPhieuMuon }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaPhieuMuon })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,100 @@
+﻿@model QuanlyThuVienCuaHung.Models.AspNetUser
+@using QuanlyThuVienCuaHung.Models
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Entities1 db = new Entities1();
+    string iduser = "";
+    string username = User.Identity.GetUserName();
+    if (Request.IsAuthenticated)
+    {
+        iduser = db.AspNetUsers.Single(d => d.Email.Equals(username)).Id;
+    }
+}
+
+
+<h2>Chỉnh sửa</h2>
+
+<div>
+    <h4>Thông tin người dùng</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayLapThe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayLapThe)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.TienNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienNo)
+        </dd>*@
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.HanThe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HanThe)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOAI_DOCGIA.TenLoaiDG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAI_DOCGIA.TenLoaiDG)
+        </dd>
+
+    </dl>
+</div>
+<p><a href="@Url.Action("Edit","Home", new { id=iduser })" class="btn btn-primary btn-lg">Chỉnh sửa thông tin cá nhân &raquo;</a></p>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+    </p>

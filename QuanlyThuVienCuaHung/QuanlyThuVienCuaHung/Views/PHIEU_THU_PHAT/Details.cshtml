@@ -1,0 +1,35 @@
+﻿@model QuanlyThuVienCuaHung.Models.PHIEU_THU_PHAT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PHIEU_THU_PHAT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTienThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTienThu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaPhieuThuPhat }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
