@@ -19,7 +19,7 @@
     }
     else if(Request.IsAuthenticated)
     {
-        username = User.Identity.GetUserName();
+        username = User.Identity.GetUserName();//lay ten nguoi dung dang dang nhap
         var DBuser = db.AspNetUsers.Single(t => t.UserName.Equals(username));
         bool full = true;
         if (DBuser.MaLoaiDG == null || DBuser.HoTen == null || DBuser.NgaySinh == null ||  DBuser.DiaChi == null)

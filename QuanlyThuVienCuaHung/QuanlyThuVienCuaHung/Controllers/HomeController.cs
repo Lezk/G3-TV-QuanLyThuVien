@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using QuanlyThuVienCuaHung.Models;
+using Microsoft.AspNet.Identity;
 
 namespace QuanlyThuVienCuaHung.Controllers
 {
@@ -15,6 +16,7 @@ namespace QuanlyThuVienCuaHung.Controllers
         private Entities1 db = new Entities1();
         public ActionResult Index()
         {
+            
             return View();
         }
 

@@ -6,7 +6,6 @@
     ViewBag.Title = "trả sách";
     var ngaytra = DateTime.Now;
     int masach = int.Parse(ViewData["masach"].ToString());
-    Layout = "~/Views/Shared/_Layout.cshtml";
     string username = User.Identity.GetUserName();
     string iduser = "";
     Entities1 db = new Entities1();

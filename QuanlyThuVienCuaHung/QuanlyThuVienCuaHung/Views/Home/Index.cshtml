@@ -16,7 +16,7 @@
     <div class="w3-display-left w3-padding-large ">
        
         <h1 class="w3-jumbo w3-text-white w3-hide-small "><i class="fa fa-asl-interpreting" style="font-size:50px"></i> THƯ VIỆN <i class="fa fa-asl-interpreting" style="font-size:50px"></i></h1>
-        @if (Request.IsAuthenticated)
+        @if (Request.IsAuthenticated && User.Identity.GetUserName() != "admin@gmail.com")
     {
         <p><a href="@Url.Action("Details","Home", new { id=iduser })" class="w3-button w3-blue">Xem Thông tin &raquo;</a></p>
         <p><a href="@Url.Action("xemsach","Home")" class="w3-button w3-deep-purple">Xem Sách &raquo;</a></p>
